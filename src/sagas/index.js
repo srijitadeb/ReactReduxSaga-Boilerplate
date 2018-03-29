@@ -1,9 +1,10 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import request from '../utils/helper'
 
 function* fetchContacts() {
 
     try {
-        const contacts = yield call(fetch('http://localhost:3333/contacts').then(res => res))
+        const contacts = yield call(request, 'http://localhost:3333/contacts')
         console.log('contacts.contacts')
     } catch (e) {
         console.log(e)
